@@ -43,3 +43,10 @@
   args:
     executable: /bin/bash
   when: solana_installer|default(true)|bool == true
+
+- name: install ufw
+  become: true
+  become_user: solana
+  shell: sudo snap install ufw
+  args:
+    executable: /bin/bash
