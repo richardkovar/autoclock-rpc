@@ -20,12 +20,16 @@ exec solana-validator \
   --rpc-bind-address 0.0.0.0 \
   --dynamic-port-range 8002-8099 \
   --wal-recovery-mode skip_any_corrupted_record \
-  --limit-ledger-size 1000000000  \
+  --limit-ledger-size 50000000  \
   --private-rpc \
   --no-snapshot-fetch \
   --no-port-check \
   --no-voting \
+  --full-rpc-api \
+  --tpu-use-quic \
   --enable-cpi-and-log-storage \
   --enable-rpc-transaction-history \
-  --full-rpc-api \
-  --tpu-use-quic
+  --account-index program-id spl-token-mint spl-token-owner \
+  --accounts-index-memory-limit-mb 800000 \
+  --account-index-exclude-key TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA \
+  --account-index-exclude-key kinXdEcpDQeHPEuQnqmUgtYykqKGVFq6CeVX5iAHJq6
