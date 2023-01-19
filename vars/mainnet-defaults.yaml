@@ -12,9 +12,3 @@ solana_metrics_config: host=https://metrics.solana.com:8086,db=mainnet-beta,u=ma
 solana_index_exclude_keys:
   - 'kinXdEcpDQeHPEuQnqmUgtYykqKGVFq6CeVX5iAHJq6'
   - 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
-
-solana_known_validators:
-  - 7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2
-  - GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ
-  - DE1bawNcRJB9rVm3buyMVfr8mBEoyyu73NBovf2oXJsJ
-  - CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S

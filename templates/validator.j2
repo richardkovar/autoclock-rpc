@@ -28,11 +28,7 @@ exec solana-validator \
   --enable-cpi-and-log-storage \
   --enable-rpc-transaction-history \
   --account-index program-id spl-token-mint spl-token-owner \
-  --accounts-index-memory-limit-mb 800000 \
 {% for key in solana_index_exclude_keys %}
   --account-index-exclude-key {{ key }} \
 {% endfor %}
-{% for validator in solana_known_validators %}
-  --known-validator {{ validator }} {% if not loop.last %}\
-{% endif %}
-{% endfor %}
+  --accounts-index-memory-limit-mb 800000
