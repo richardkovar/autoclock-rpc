@@ -1,0 +1,14 @@
+solana_rpc: https://api.mainnet-beta.solana.com
+
+solana_entrypoints:
+  - entrypoint.mainnet-beta.solana.com:8001
+  - entrypoint2.mainnet-beta.solana.com:8001
+  - entrypoint3.mainnet-beta.solana.com:8001
+  - entrypoint4.mainnet-beta.solana.com:8001
+  - entrypoint5.mainnet-beta.solana.com:8001
+
+solana_metrics_config: host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password
+
+solana_index_exclude_keys:
+  - 'kinXdEcpDQeHPEuQnqmUgtYykqKGVFq6CeVX5iAHJq6'
+  - 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
