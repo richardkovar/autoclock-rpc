@@ -8,3 +8,5 @@ download_snapshot: "true"
 swap_mb: "100000"
 solana_installer: "true"
 base_path: /home/mnt
+solana_network: mainnet
+solana_index_exclude_keys: []

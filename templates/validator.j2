@@ -6,11 +6,9 @@ PATH=/home/solana/.local/share/solana/install/active_release/bin:/usr/sbin:/usr/
 # Start solana rpc node, intended to be used with journalctl/systemctl. Logs will go to journalctl.
 exec solana-validator \
   --identity /home/solana/rpc_node.json \
-    --entrypoint entrypoint.mainnet-beta.solana.com:8001 \
-    --entrypoint entrypoint2.mainnet-beta.solana.com:8001 \
-    --entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
-    --entrypoint entrypoint4.mainnet-beta.solana.com:8001 \
-    --entrypoint entrypoint5.mainnet-beta.solana.com:8001 \
+{% for entrypoint in solana_entrypoints %}
+  --entrypoint {{ entrypoint }} \
+{% endfor %}
   --accounts /home/mnt/solana-accounts \
   --ledger /home/mnt/solana-ledger \
   --snapshots /home/mnt/solana-snapshots \
@@ -31,5 +29,10 @@ exec solana-validator \
   --enable-rpc-transaction-history \
   --account-index program-id spl-token-mint spl-token-owner \
   --accounts-index-memory-limit-mb 800000 \
-  --account-index-exclude-key TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA \
-  --account-index-exclude-key kinXdEcpDQeHPEuQnqmUgtYykqKGVFq6CeVX5iAHJq6
+{% for key in solana_index_exclude_keys %}
+  --account-index-exclude-key {{ key }} \
+{% endfor %}
+{% for validator in solana_known_validators %}
+  --known-validator {{ validator }} {% if not loop.last %}\
+{% endif %}
+{% endfor %}
