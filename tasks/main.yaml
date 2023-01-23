@@ -13,6 +13,9 @@
 - name: install dependencies
   include_tasks: deps.yaml
 
+- name: install solana
+  include_tasks: install_solana.yaml
+
 - name: folders
   include_tasks: dirs.yaml
 
