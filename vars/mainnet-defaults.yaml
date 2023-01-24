@@ -10,5 +10,6 @@ solana_entrypoints:
 solana_metrics_config: host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password
 
 solana_index_exclude_keys:
-  - 'kinXdEcpDQeHPEuQnqmUgtYykqKGVFq6CeVX5iAHJq6'
-  - 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
+  - "kinXdEcpDQeHPEuQnqmUgtYykqKGVFq6CeVX5iAHJq6"
+  - "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+startup_script: validator.j2
