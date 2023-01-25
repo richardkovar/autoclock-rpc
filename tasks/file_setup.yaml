@@ -23,25 +23,6 @@
     group: root
     mode: "0755"
 
-- name: copy restart.sh
-  become: true
-  become_user: solana
-  template:
-    src: restart.sh
-    dest: /home/solana/restart.sh
-    owner: solana
-    group: solana
-    mode: "0755"
-
-- name: copy snapcheck.py
-  become: true
-  become_user: solana
-  template:
-    src: snapcheck.py
-    dest: "{{ base_path }}/snapcheck.py"
-    owner: solana
-    group: solana
-
 - name: copy snapshot-finder.py
   become: true
   become_user: solana
