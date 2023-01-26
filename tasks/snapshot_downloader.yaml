@@ -6,8 +6,14 @@
       - tqdm
       - requests
     executable: pip3
+- name: download latest snapshot
+  become: true
+  become_user: solana
+  shell: python3 {{ base_path }}/snapshot-finder.py --snapshot_path {{ base_path }}/solana-snapshots --version {{ solana_version }}
+  when: solana_rpc is not defined
 
 - name: download latest snapshot
   become: true
   become_user: solana
   shell: python3 {{ base_path }}/snapshot-finder.py --snapshot_path {{ base_path }}/solana-snapshots --version {{ solana_version }} --rpc_address {{ solana_rpc }}
+  when: solana_rpc is defined
