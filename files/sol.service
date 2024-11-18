@@ -7,11 +7,11 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-User=jito
+User=%user%
 LimitNOFILE=2000000
 LogRateLimitIntervalSec=0
-Environment="PATH=/mnt/jito/target/release/:/home/jito/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/snap/bin:/home/jito/.local/bin/:/home/jito/.local/bin/:/home/jito/.local/bin/"
-ExecStart=/home/jito/validator.sh
+Environment="PATH=/mnt/%user%/target/release/:/home/%user%/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/snap/bin:/home/jito/.local/bin/:/home/%user%/.local/bin/:/home/%user%/.local/bin/"
+ExecStart=/home/%user%/validator.sh
 
 [Install]
 WantedBy=multi-user.target

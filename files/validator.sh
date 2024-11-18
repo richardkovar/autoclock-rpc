@@ -1,7 +1,7 @@
 #!/bin/bash
 export SOLANA_METRICS_CONFIG="host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password"
-exec /mnt/solana/target/release/agave-validator \
---identity /home/solana/rpc_node.json \
+exec /mnt/%user%/target/release/agave-validator \
+--identity /home/%user%/rpc_node.json \
 --entrypoint entrypoint.mainnet-beta.solana.com:8001 \
 --entrypoint entrypoint2.mainnet-beta.solana.com:8001 \
 --entrypoint entrypoint3.mainnet-beta.solana.com:8001 \
@@ -10,7 +10,6 @@ exec /mnt/solana/target/release/agave-validator \
 --rpc-port 8899 \
 --dynamic-port-range 8002-8099 \
 --no-port-check \
---halt-on-trusted-validators-accounts-hash-mismatch \
 --gossip-port 8001 \
 --no-voting \
 --private-rpc \
@@ -20,9 +19,9 @@ exec /mnt/solana/target/release/agave-validator \
 --enable-rpc-transaction-history \
 --wal-recovery-mode skip_any_corrupted_record \
 --log /mnt/logs/validator.log \
---accounts /mnt/accounts \
---ledger /mnt/ledger \
---snapshots /mnt/snapshots \
+--accounts /%accounts_path% \
+--ledger /%ledger_path% \
+--snapshots /%snapshots_path% \
 --expected-genesis-hash 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d \
 --limit-ledger-size 400000000 \
 --rpc-send-default-max-retries 3 \
