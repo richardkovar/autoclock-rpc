@@ -20,6 +20,13 @@
     - chrony
     - htop
     - acl
+    - libssl-dev
+    - zlib1g-dev
+    - llvm
+    - clang
+    - make
+    - libprotobuf-dev
+    - protobuf-compiler
       
 - name: check if cargo is installed
   become: true
