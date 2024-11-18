@@ -2,14 +2,14 @@
   become: true
   become_user: solana
   git:
-    repo: 'https://github.com/solana-labs/solana.git'
-    dest: /mnt/solana
-    version: tags/{{ solana_version }}
+    repo: 'https://github.com/jito-foundation/jito-solana.git'
+    dest: /mnt/agave
+    version: tags/{{ jito_version }}
 
 - name: build solana
   become: true
-  become_user: solana
-  shell: source /home/solana/.cargo/env && /mnt/solana/cargo build --release
+  become_user: {{ user }}
+  shell: source /home/{{ user }}/.cargo/env && /mnt/{{ user }}/cargo build --release
   args:
-    chdir: /mnt/solana
+    chdir: /mnt/agave
     executable: /bin/bash

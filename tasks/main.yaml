@@ -15,8 +15,16 @@
 - name: swap
   include_tasks: swap.yaml
 
-- name: setup disks
-  include_tasks: disks.yaml
+- name: setup accounts disk
+  include_tasks: disks_accounts.yaml
+  when: setup_disks|default(false)|bool == true
+
+- name: setup ledger disk
+  include_tasks: disks_ledger.yaml
+  when: setup_disks|default(false)|bool == true
+
+- name: setup snapshots disk
+  include_tasks: disks_snapshots.yaml
   when: setup_disks|default(false)|bool == true
 
 - name: logrotate
@@ -41,11 +49,11 @@
 - name: restart without waiting
   become: true
   become_user: root
-  shell: /home/solana/restart.sh 1
+  shell: /home/{{ user }}/restart.sh 1
   when: download_snapshot|default(true)|bool == true
 
 - name: restart with waiting
   become: true
   become_user: root
-  shell: /home/solana/restart.sh
+  shell: /home/{{ user }}/restart.sh
   when: download_snapshot|default(true)|bool == false

@@ -10,28 +10,28 @@
 
 - name: solana snapshots
   file:
-    path: /mnt/solana-snapshots
+    path: /{{ snapshots_path }}
     state: directory
-    owner: solana
-    group: solana
+    owner: {{ user }}
+    group: {{ user }}
   become: true
   become_user: root
 
 - name: solana ledger
   file:
-    path: /mnt/solana-ledger
+    path: /{{ ledger_path }}
     state: directory
-    owner: solana
-    group: solana
+    owner: {{ user }}
+    group: {{ user }}
   become: true
   become_user: root
 
 - name: solana accounts
   file:
-    path: /mnt/solana-accounts
+    path: /{{ accounts_path }}
     state: directory
-    owner: solana
-    group: solana
+    owner: {{ user }}
+    group: {{ user }}
   become: true
   become_user: root
 
@@ -41,5 +41,5 @@
   file:
     path: /mnt/logs
     state: directory
-    owner: solana
-    group: solana
+    owner: {{ user }}
+    group: {{ user }}

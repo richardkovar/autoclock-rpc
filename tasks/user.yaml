@@ -1,32 +1,32 @@
-- name: create solana group
+- name: create {{ user }} group
   become: true
   become_user: root
   group:
-    name: solana
+    name: {{ user }}
     state: present
 
-- name: create solana user
+- name: create {{ user }} user
   become: true
   become_user: root
   user:
-    name: solana
+    name: {{ user }}
     create_home: yes
-    groups: solana
+    groups: {{ user }}
     shell: /bin/bash
 
-- name: solana user to have passwordless sudo
+- name: {{ user }} user to have passwordless sudo
   become: true
   become_user: root
   lineinfile:
     dest: /etc/sudoers
     state: present
-    regexp: '^solana'
-    line: 'solana ALL=(ALL) NOPASSWD: ALL'
+    regexp: '^{{ user }}'
+    line: '{{ user }} ALL=(ALL) NOPASSWD: ALL'
     validate: 'visudo -cf %s'
 
-- name: Ensure solana build is in path for solana user
+- name: Ensure {{ user }} build is in path for {{ user }} user
   become: true
   become_user: root
   lineinfile:
-    path: /home/solana/.bashrc
-    line: 'export PATH=/mnt/solana/target/release:$PATH'
+    path: /home/{{ user }}/.bashrc
+    line: 'export PATH=/mnt/{{ user }}/target/release:$PATH'

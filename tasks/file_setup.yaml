@@ -3,9 +3,9 @@
   become_user: solana
   copy:
     src: validator.sh
-    dest: /home/solana/validator.sh
-    owner: solana
-    group: solana
+    dest: /home/{{ user }}/validator.sh
+    owner: {{ user }}
+    group: {{ user }}
     mode: "0755"
 
 - name: setup sol.service
@@ -20,48 +20,48 @@
 
 - name: copy restart.sh
   become: true
-  become_user: solana
+  become_user: {{ user }}
   copy:
     src: restart.sh
-    dest: /home/solana/restart.sh
-    owner: solana
-    group: solana
+    dest: /home/{{ user }}/restart.sh
+    owner: {{ user }}
+    group: {{ user }}
     mode: "0755"
     
 - name: copy download_start.sh
   become: true
-  become_user: solana
+  become_user: {{ user }}
   copy:
     src: download_start.sh
-    dest: /home/solana/download_start.sh
-    owner: solana
-    group: solana
+    dest: /home/{{ user }}/download_start.sh
+    owner: {{ user }}
+    group: {{ user }}
     mode: "0755"
 
 - name: copy snapcheck.py
   become: true
-  become_user: solana
+  become_user: {{ user }}
   copy:
     src: snapcheck.py
     dest: /mnt/snapcheck.py
-    owner: solana
-    group: solana
+    owner: {{ user }}
+    group: {{ user }}
 
 - name: copy snapshot-finder.py
   become: true
-  become_user: solana
+  become_user: {{ user }}
   copy:
     src: snapshot-finder.py
     dest: /mnt/snapshot-finder.py
-    owner: solana
-    group: solana
+    owner: {{ user }}
+    group: {{ user }}
 
 - name: copy montip.py
   become: true
-  become_user: solana
+  become_user: {{ user }}
   copy:
     src: montip.py
     dest: /mnt/montip.py
-    owner: solana
-    group: solana
+    owner: {{ user }}
+    group: {{ user }}
 
