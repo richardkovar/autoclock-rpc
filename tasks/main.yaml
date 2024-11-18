@@ -12,9 +12,6 @@
 - name: folders
   include_tasks: dirs.yaml
 
-- name: swap
-  include_tasks: swap.yaml
-
 - name: setup accounts disk
   include_tasks: disks_accounts.yaml
   when: setup_disks|default(false)|bool == true
