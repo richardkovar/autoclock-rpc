@@ -1,11 +1,11 @@
-- name: sol validator setup
+- name: validator setup
   become: true
-  become_user: solana
+  become_user: '{{ user }}'
   copy:
     src: validator.sh
-    dest: /home/{{ user }}/validator.sh
-    owner: {{ user }}
-    group: {{ user }}
+    dest: '/home/{{ user }}/validator.sh'
+    owner: '{{ user }}'
+    group: '{{ user }}'
     mode: "0755"
 
 - name: setup sol.service
@@ -20,12 +20,12 @@
 
 - name: copy restart.sh
   become: true
-  become_user: {{ user }}
+  become_user: '{{ user }}'
   copy:
     src: restart.sh
-    dest: /home/{{ user }}/restart.sh
-    owner: {{ user }}
-    group: {{ user }}
+    dest: '/home/{{ user }}/restart.sh'
+    owner: '{{ user }}'
+    group: '{{ user }}'
     mode: "0755"
     
 - name: copy download_start.sh
