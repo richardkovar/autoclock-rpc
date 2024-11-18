@@ -1,20 +1,20 @@
 - name: check mount
   become: true
   become_user: root
-  shell: df -h | grep {{ snapshots_path }}
+  shell: 'df -h | grep {{ snapshots_path }}'
   ignore_errors: yes
   register: mount_mnt
 
 - name: format disks with ext4
   become: true
   become_user: root
-  shell: mkfs.ext4 /dev/{{ snapshots_disk }}
+  shell: 'mkfs.ext4 /dev/{{ snapshots_disk }}'
   when: mount_mnt.rc != 0
 
 - name: mount disks for snapshots
   become: true
   become_user: root
-  shell: mount /dev/{{ snapshots_disk }} /{{ snapshots_path }} && chown -R solana:solana /{{ snapshots_path }}
+  shell: 'mount /dev/{{ snapshots_disk }} /{{ snapshots_path }} && chown -R solana:solana /{{ snapshots_path }}'
   when: mount_mnt.rc != 0
 
 - name: add mounted disk to fstab
@@ -23,4 +23,4 @@
   lineinfile:
     dest: /etc/fstab
     state: present
-    line: "/dev/{{ snapshots_disk }}    /{{ snapshots_path }}    ext4    defaults,noatime    0    1"
+    line: '/dev/{{ snapshots_disk }}    /{{ snapshots_path }}    ext4    defaults,noatime    0    1'

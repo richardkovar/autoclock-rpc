@@ -1,6 +1,6 @@
 - name: install snapshot requirements
   become: true
-  become_user: {{ user }}
+  become_user: '{{ user }}'
   ansible.builtin.pip:
     name:
       - tqdm
@@ -10,4 +10,4 @@
 - name: download latest snapshot
   become: true
   become_user: {{ user }}
-  shell: python3 /mnt/snapshot-finder.py --snapshot_path /{{ snapshots_path }} --version 1.16 --max_latency 150
+  shell: 'python3 /mnt/snapshot-finder.py --snapshot_path /{{ snapshots_path }} --version 1.16 --max_latency 150'

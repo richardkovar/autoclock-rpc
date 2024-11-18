@@ -1,15 +1,15 @@
-- name: solana repository
+- name: '{{ user }} repo'
   become: true
-  become_user: solana
+  become_user: '{{ user }}'
   git:
     repo: 'https://github.com/jito-foundation/jito-solana.git'
-    dest: /mnt/agave
-    version: tags/{{ jito_version }}
+    dest: '/mnt/{{ user }}'
+    version: 'tags/{{ jito_version }}'
 
-- name: build solana
+- name: 'build {{ user }}'
   become: true
-  become_user: {{ user }}
-  shell: source /home/{{ user }}/.cargo/env && /mnt/{{ user }}/cargo build --release
+  become_user: '{{ user }}'
+  shell: 'source /home/{{ user }}/.cargo/env && /mnt/{{ user }}/cargo build --release'
   args:
-    chdir: /mnt/agave
+    chdir: '/mnt/{{ user }}'
     executable: /bin/bash

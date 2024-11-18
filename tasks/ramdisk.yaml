@@ -1,7 +1,7 @@
 - name: setup ramdisk for accountsdb
   become: true
   become_user: root
-  shell: mount -t tmpfs -o size={{ ramdisk_size }}G tmpfs /{{ accounts_path }}
+  shell: 'mount -t tmpfs -o size={{ ramdisk_size }}G tmpfs /{{ accounts_path }}'
   when: ansible_memtotal_mb >= 1500*ramdisk_size
 
 - name: add ramdisk to fstab
@@ -10,5 +10,5 @@
   lineinfile:
     dest: /etc/fstab
     state: present
-    line: "tmpfs /{{ accounts_path }} tmpfs rw,size={{ ramdisk_size }}G,user={{ user }} 0 0"
+    line: 'tmpfs /{{ accounts_path }} tmpfs rw,size={{ ramdisk_size }}G,user={{ user }} 0 0'
   when: ansible_memtotal_mb >= 1500*ramdisk_size

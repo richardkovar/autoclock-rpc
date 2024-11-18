@@ -2,36 +2,36 @@
   file:
     path: /mnt
     state: directory
-    owner: solana
-    group: solana
+    owner: '{{ user }}'
+    group: '{{ user }}'
     mode: "0777"
   become: true
   become_user: root
 
 - name: solana snapshots
   file:
-    path: /{{ snapshots_path }}
+    path: '/{{ snapshots_path }}'
     state: directory
-    owner: {{ user }}
-    group: {{ user }}
+    owner: '{{ user }}'
+    group: '{{ user }}'
   become: true
   become_user: root
 
 - name: solana ledger
   file:
-    path: /{{ ledger_path }}
+    path: '/{{ ledger_path }}'
     state: directory
-    owner: {{ user }}
-    group: {{ user }}
+    owner: '{{ user }}'
+    group: '{{ user }}'
   become: true
   become_user: root
 
 - name: solana accounts
   file:
-    path: /{{ accounts_path }}
+    path: '/{{ accounts_path }}'
     state: directory
-    owner: {{ user }}
-    group: {{ user }}
+    owner: '{{ user }}'
+    group: '{{ user }}'
   become: true
   become_user: root
 
@@ -41,5 +41,5 @@
   file:
     path: /mnt/logs
     state: directory
-    owner: {{ user }}
-    group: {{ user }}
+    owner: '{{ user }}'
+    group: '{{ user }}'
