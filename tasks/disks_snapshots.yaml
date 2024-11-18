@@ -14,7 +14,7 @@
 - name: mount disks for snapshots
   become: true
   become_user: root
-  shell: 'mount /dev/{{ snapshots_disk }} /{{ snapshots_path }} && chown -R solana:solana /{{ snapshots_path }}'
+  shell: 'mount /dev/{{ snapshots_disk }} /{{ snapshots_path }} && chown -R {{ user }}:{{ user }} /{{ snapshots_path }}'
   when: mount_mnt.rc != 0
 
 - name: add mounted disk to fstab

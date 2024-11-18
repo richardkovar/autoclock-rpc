@@ -14,7 +14,7 @@
 - name: mount disks for accounts
   become: true
   become_user: root
-  shell: 'mount /dev/{{ accounts_disk }} /{{ accounts_path }} && chown -R solana:solana /{{ accounts_path }}'
+  shell: 'mount /dev/{{ accounts_disk }} /{{ accounts_path }} && chown -R {{ user }}:{{ user }} /{{ accounts_path }}'
   when: mount_mnt.rc != 0
 
 - name: add mounted disk to fstab
