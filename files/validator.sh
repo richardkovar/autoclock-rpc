@@ -19,10 +19,10 @@ exec /mnt/solana/target/release/agave-validator \
 --account-index program-id \
 --enable-rpc-transaction-history \
 --wal-recovery-mode skip_any_corrupted_record \
---log /mnt/logs/solana-validator.log \
---accounts /mnt/solana-accounts \
---ledger /mnt/solana-ledger \
---snapshots /mnt/solana-snapshots \
+--log /mnt/logs/validator.log \
+--accounts /mnt/accounts \
+--ledger /mnt/ledger \
+--snapshots /mnt/snapshots \
 --expected-genesis-hash 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d \
 --limit-ledger-size 400000000 \
 --rpc-send-default-max-retries 3 \
