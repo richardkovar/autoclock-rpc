@@ -4,13 +4,13 @@ user:               "jito"
 
 jito_version:       "v2.0.15-jito"
 
-snapshots_disk:     "nvme1n1"
+snapshots_disk:     "os"
 snapshots_path:     "mnt/snapshots"
 
-ledger_disk:        "nvme2n1"
+ledger_disk:        "nvme0n1"
 ledger_path:        "mnt/ledger"
 
-accounts_disk:      "nvme3n1"
+accounts_disk:      "nvme1n1"
 accounts_path:      "mnt/accounts"
 
 setup_disks:        "true"

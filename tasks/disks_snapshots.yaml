@@ -1,3 +1,6 @@
+- name: skipping as snapshots_disk is set to os
+  when: snapshots_disk != "os"
+
 - name: check mount
   become: true
   become_user: root
